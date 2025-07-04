@@ -19,20 +19,18 @@
       {{ title }}
       {%- render 'collapsible-icons' -%}
     </button>
-    {% for item in product_value %}
-      <div
-        data-text="descript"
-        id="Product-content-{{ id }}"
-        class="collapsible-content collapsible-content--all{% if force_open %} is-open{% endif %}"
-        data-content="{{ item.title }}"
-        {% if force_open %}
-          style="height: auto;"
-        {% endif %}
-      >
-        <div class="collapsible-content__inner rte">
-          {{ content }}
-        </div>
+    <div
+      data-text="descript"
+      id="Product-content-{{ id }}"
+      class="collapsible-content collapsible-content--all{% if force_open %} is-open{% endif %}"
+      data-content="{{ item.title }}"
+      {% if force_open %}
+        style="height: auto;"
+      {% endif %}
+    >
+      <div class="collapsible-content__inner rte">
+        {{ content }}
       </div>
-    {% endfor %}
+    </div>
   </div>
 {%- endif -%}

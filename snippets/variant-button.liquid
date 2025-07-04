@@ -58,6 +58,14 @@
         if product.options.size == 1
           assign product_available = product.variants[forloop.index0].available
         endif
+
+        assign variant_metafield = blank
+        for v in product.variants
+          if v.title contains value
+            assign variant_metafield = v.metafields.custom.shipping_type
+            break          
+          endif
+        endfor
       -%}
       <div
         class="variant-input"
@@ -73,6 +81,9 @@
           value="{{ value | escape }}"
           data-index="option{{ option_index }}"
           name="{{ option.name }}"
+          {% if variant_metafield %}
+            data-variant-metafield="{{ variant_metafield }}"
+          {% endif %}
           data-variant-input
           class="{% unless product_available %} disabled{% endunless %}{% if is_color %} variant__input--color-swatch{% endif %}"
           {% if is_color %}

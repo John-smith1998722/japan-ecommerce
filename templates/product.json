@@ -47,7 +47,8 @@
           "settings": {
             "title": "まとめ買いによる価格比較　",
             "content": "<p>{{ product.metafields.my_fields._comparison | metafield_tag }}</p>",
-            "page": ""
+            "page": "",
+            "use_variant_metafield": true
           }
         },
         "9b6d9e75-fc83-4ba8-b957-d0bc39884713": {

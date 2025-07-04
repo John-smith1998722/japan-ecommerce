@@ -162,14 +162,9 @@
                       {{ block.settings.page.content }}
                     {% endcapture %}
                     {% unless tab_content == blank and block.settings.title == blank %}
-                      <div class="product-block product-block--tab" {{ block.shopify_attributes }}>
-                        {%- render 'tab',
-                          id: tab_id,
-                          title: block.settings.title,
-                          content: tab_content,
-                          variant_value: current_variant.title
-                        -%}
-                        {% comment %} {%- render 'tab', id: tab_id, title: block.settings.title, content: tab_content -%} {% endcomment %}
+                      <div class="product-block product-block--tab{% if block.settings.use_variant_metafield %} use-variant-metafield{% endif %}" {{ block.shopify_attributes }}>
+                        {% assign newContent = product.selected_or_first_available_variant.metafields.custom.shipping_type %}
+                        {%- render 'tab', id: tab_id, title: block.settings.title, content: newContent -%}
                       </div>
                     {% endunless %}
                   {%- when 'COAONE' -%}
