@@ -1,0 +1,79 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "16609913091c6e6aed": {
+      "type": "rich-text",
+      "blocks": {
+        "1660991309cd0e18d6-0": {
+          "type": "heading",
+          "settings": {
+            "title": "FAX注文の手順"
+          }
+        },
+        "1660991309cd0e18d6-1": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": true,
+            "text": "<p>ＦＡＸ注文に際しては下記の注意事項と手順を必ずお読みください。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "1660991309cd0e18d6-0",
+        "1660991309cd0e18d6-1"
+      ],
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false
+      }
+    },
+    "1660991358493daf2d": {
+      "type": "advanced-content",
+      "blocks": {
+        "1660991358b686d286-1": {
+          "type": "liquid",
+          "settings": {
+            "code": "<div class=\"fax\">\n<ol>\n <li>下記別紙のＦＡＸ注文用紙をプリンターで印刷する。</li>\n <li>ボールペンで必要事項をご記入ください。<br/>\n  ※：必ず正確にお書きください。不明瞭の場合は注文受付ができない場合があります。<br/>\n  ※：商品や価格は日々更新されます。ご記入前に必ず天狗堂サイトで最新の商品情報をご確認の上お申し込みください。<br/>\n</li>\n <li>ご記入後、下記番号にＦＡＸを送信する。<br/>\n  ※：番号間違いが多発しております。十分にご注意、ご確認をお願いします。<br/>\n  送信先ＦＡＸ番号： ０９２－２１４－６５５８\n</li>\n <li>ＦＡＸ送信後、弊社よりご注文内容の確認後に、問題がなければ一両日中にご連絡いたします。その時点で注文受付のお振込金額と振込先の連絡をいたします。</li>\n <li>弊社案内の振込先指定口座にお振り込みください。<br/>\n  注意：必ず弊社からのご注文受付の返事をお受け取り後にお振り込みください。\n</li>\n <li>弊社でのご入金確認後に配送の手配に入ります。ご到着をお待ちください。<br/>\n</li>\n\n</ol>\n\n注意事項：<br/>\n  ※ＦＡＸでのお申込時点で、弊社利用規約に同意いただいたものとさせていただきます。必ず弊社のサイトの利用規約をご確認の上お申し込みください。<br/>\n  ※ＦＡＸによるご注文は弊社サイト上でのキャンペーンやポイント割引等の会員サービスはご使用できません。あらかじめご了承ください。<br/>\n  ※お問い合わせは、FAX,e-mailで承ります。<br/>\n\n</div>",
+            "width": "50%",
+            "alignment": "center"
+          }
+        },
+        "7adcf58a-1a33-4c46-9949-3f59a321b3f7": {
+          "type": "liquid",
+          "settings": {
+            "code": "<div class=\"container\">\n<div class=\"row\">\n<figure><img alt=\"FAX発注書\" src=\"https://cdn.shopify.com/s/files/1/0555/3389/5873/files/FAX.png?v=1647217690\"></figure>\n</div>\n\n<div class=\"row\">\n<div class=\"more\"><a class=\"add_arrow\" href=\"https://cdn.shopify.com/s/files/1/0555/3389/5873/files/d9c230bf24153c97fe928d434a0a89c0.pdf?v=1647217066\">FAX用紙印刷</a></div>\n</div>\n</div>",
+            "width": "50%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "1660991358b686d286-1",
+        "7adcf58a-1a33-4c46-9949-3f59a321b3f7"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "16609913091c6e6aed",
+    "1660991358493daf2d"
+  ]
+}

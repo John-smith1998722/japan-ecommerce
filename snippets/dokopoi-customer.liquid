@@ -1,0 +1,31 @@
+  <!--ポイント部分 -->
+  <script>
+   let shopdomain = "{{ shop.permanent_domain }}"
+  let cs_id = "{{ customer.id }}"
+  let csemail = "{{ customer.email  }}"
+  let csfirst_name = "{{ customer.first_name  }}"
+  let cslast_name = "{{ customer.last_name  }}"
+</script>
+  <!--ポイント部分 -->
+  <div id="dokopoiblock" style="display:none;">
+<div id="point-account">
+  <div id="pointInner">
+  </div>
+</div>
+<div id="point-history-table" style="margin-bottom:40px;">
+<table class="order-history" role="table" id="history">
+<thead role="rowgroup">
+<tr role="row">
+<th id="ColumnOrderNo" scope="col" role="columnheader">注文</th>
+<th id="ColumnOrderDate" scope="col" role="columnheader">日付</th>
+<th id="ColumnOrderSt" scope="col" role="columnheader">ステータス</th>
+<th id="ColumnOrderPoint" scope="col" role="columnheader">ポイント</th>
+<th id="ColumnOrderLimitDate" scope="col" role="columnheader">有効期限</th>
+<th id="ColumnPointBikou" scope="col" role="columnpointbikou">備考</th>
+</tr>
+</thead>
+
+</table>
+</div>
+</div>
+  <!--/ポイント部分ここまで -->

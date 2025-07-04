@@ -1,0 +1,31 @@
+<script>
+  let shopdomain = "{{ shop.permanent_domain }}"
+  let cs_id = "{{ customer.id }}"
+  let totalprice = "{{ cart.total_price }}"
+  let csemail = "{{ customer.email  }}"
+  let csfirst_name = "{{ customer.first_name  }}"
+  let cslast_name = "{{ customer.last_name  }}"
+</script>
+  {%- if cart != empty -%}
+  {%- if customer.id -%}
+    <div id="point-body" style="display:none;">
+    <p class="line-item-property__field" style="margin-top:30px;">
+      <label id="pointLabel" for="point">ポイントを利用する</label>
+      <input id="point" style="border:solid 1px #e3e3e3" type="number" name="properties[point]">
+    </p>
+  <button class="cart__submit btn btn--small-wide" onclick="crp()"id="point-submit">ポイントを使用する</button>
+    <button class="cart__submit btn btn--small-wide" onclick="rep()" id="point-reset">リセット</button>
+
+    <p class="visually-hidden" data-cart-status aria-live="polite" role="status"></p>
+    </div>
+
+    {%- else -%}
+       <div id="point-body" class="" style="display:none;">
+      <p class="line-item-property__field" style="margin-top:30px;">
+        <label id="pointLabel" style="background-color:#ffffff;color:#000000" for="point">ログインするとポイントが貯められます！</label>
+
+      </p>
+      <a href='/account/login?return_url=%2Fcart' style="background-color:#000000;color:#ffffff;"class="cart__submit product-form__submit btn btn--small-wide" id="point-reset">ログインはこちらから</a>
+        </div>
+    {%- endif -%}
+    {%- endif -%}

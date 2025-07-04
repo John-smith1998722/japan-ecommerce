@@ -1,0 +1,219 @@
+{% assign shopLocale = shop.locale %}
+{% if shopLocale == 'he' or shopLocale == 'ar' or shopLocale == 'fa' or shopLocale == 'ur' or shopLocale == 'ug'  %}
+<script>
+  function browserRedirect() {
+        var sUserAgent = navigator.userAgent.toLowerCase();
+        var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+        var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+        var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+        var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+        var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+        var bIsAndroid = sUserAgent.match(/android/i) == "android";
+        var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+        var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+        if (!(bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) ){
+          loadStyleString("body { direction: rtl;}");
+          loadStyleString(" .flexslider-container{direction: ltr;}");
+          loadStyleString(" .slick-list  {direction: ltr;}");
+          loadStyleString(" .slideshow__arrows{ direction: ltr;}");
+          loadStyleString(" .site-nav--init{float:left;}");
+          loadStyleString(" .links-footer{float:right;}");
+          loadStyleString(" .content-footer{float:right;}");
+          loadStyleString(" .large--one-half{float:right;}");
+          loadStyleString(" .push--large--one-quarter{float:left;}");
+          loadStyleString(" .input-group{direction:ltr;}");
+          loadStyleString(" .sm-icons{direction:ltr;}");
+          loadStyleString(" .shopify-section--bordered{direction:ltr;}");
+          loadStyleString(" .Icon-Wrapper--clickable{margin-left:25px;}");
+          loadStyleString(" .flex-viewport{direction:ltr;}");
+          loadStyleString(" .owl-carousel{direction:ltr;}");
+        }
+  }
+
+   function loadStyleString(css){
+        var style = document.createElement("style");
+        style.type = "text/css";
+        try{
+            style.appendChild(document.createTextNode(css));
+        }catch(ex){
+            style.styleSheet.cssText = css;
+        }
+        var head = document.getElementsByTagName("head")[0];
+        head.appendChild(style);
+    }
+
+    var is_rtl_meta = {{shop.metafields.etranslate.rtl_config | json}}
+    var is_rtl = null;
+    if((is_rtl_meta && is_rtl_meta.is_rtl == true) || (is_rtl_meta && is_rtl_meta.is_rtl == "true")){
+      var is_rtl = true;
+    } else {
+      var is_rtl = false;
+    }
+    if(is_rtl == true){
+        browserRedirect();
+    }
+</script>
+{% endif %}<script defer>
+    function dynamicText() {
+        let dynamicDataList = [{"lan_code":"jv","original_text":"pending","translate_text":"\u672a\u5b9a"},{"lan_code":"jv","original_text":"Earn Points","translate_text":"\u30dd\u30a4\u30f3\u30c8\u3092\u7372\u5f97"}];
+        let shopLocale = '{{ shop.locale }}'
+        const config = {characterData: true, childList: true, subtree: true};
+        let evtList = [];
+
+        function joinArray(e) {
+            if (Array.isArray(e)) {
+                let t = 0, n = [], max = e.length;
+                for (t = 0, n = Array(max); t < max; t++)
+                    n[t] = e[t];
+                return n;
+            }
+            return Array.from(e);
+        }
+
+        let timeout = null;
+        {% assign time = "now" | date: "%Y-%m-%d" %}
+        {% assign e_time = shop.metafields.etranslate-app.effective-time %}
+        {% if e_time >= time %}
+        const observer = new MutationObserver(evt => {
+            evtList = [].concat(joinArray(evtList), joinArray(evt));
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                doListen();
+                findInput();
+                findTextarea();
+            }, 0);
+
+        });
+        {% endif %}
+        function findInput() {
+            let input = document.getElementsByTagName("input");
+            dynamicDataList.forEach(val => {
+                if (val.lan_code == shopLocale) {
+                    setTimeout(() => {
+                        replaceInputNode(input, val);
+                    }, 0);
+                }
+            })
+        }
+
+        function findTextarea() {
+            let input = document.getElementsByTagName("textarea");
+            dynamicDataList.forEach(val => {
+                if (val.lan_code == shopLocale) {
+                    setTimeout(() => {
+                        replaceTextareaNode(input, val);
+                    }, 0);
+                }
+            })
+        }
+
+        function doListen() {
+            // observer.disconnect();
+            evtList.forEach(v => {
+                let _dom = v.target;
+                let body = document.body;
+                if (_dom.nodeName != 'BODY') {
+                    let _html = _dom.innerHTML;
+                    if (_html && _html.trim()) {
+                        dynamicDataList.forEach(val => {
+                            if (val.lan_code == shopLocale) {
+                                setTimeout(() => {
+                                    replaceTextNode(_dom, val);
+                                    replaceTextNode(body, val);
+                                }, 0);
+                            }
+                        });
+                    }
+                }
+            });
+            evtList = [];
+            // createObserve();
+        }
+
+        function createObserve() {
+            // observer.observe(document.body, config);
+        }
+
+        if (dynamicDataList && self == top) {
+            // createObserve();
+            window.onload = () => {
+                setTimeout(() => {
+                    let _dom = document.body;
+                    let _html = _dom.innerHTML;
+                    dynamicDataList.forEach(val => {
+                        if (val.lan_code == shopLocale) {
+                            setTimeout(() => {
+                                replaceTextNode(_dom, val);
+                            }, 0);
+                        }
+                    });
+                    doListen();
+                    findInput();
+                    findTextarea();
+                }, 500);
+            }
+        }
+
+        function replaceTextNode(dom, obj) {
+            let original_text = obj.original_text.trim();
+            let translate_text = obj.translate_text;
+            let _nodes = dom.childNodes;
+            let _max = _nodes.length;
+            for (let i = 0; i < _max; i++) {
+                if (_nodes[i].nodeType == 1) {
+                    if (_nodes[i].shadowRoot && _nodes[i].shadowRoot.childNodes.length > 0) {
+                        for (let k = 0; k < _nodes[i].shadowRoot.childNodes.length; k++) {
+                            replaceTextNode(_nodes[i].shadowRoot.childNodes[k], obj);
+                        }
+
+                    } else {
+                        replaceTextNode(_nodes[i], obj);
+                    }
+
+                }
+                if (_nodes[i].nodeType == 3) {
+                    var a = encodeURI(_nodes[i].textContent.trim())
+                    a = a.replace(/%C2%A0/g, '%20');
+                    a = decodeURI(a)
+                    if (a == original_text.trim()) {
+                        _nodes[i].textContent = translate_text;
+                    }
+                }
+            }
+            return true;
+        }
+
+        function replaceInputNode(input, obj) {
+            let original_text = obj.original_text.trim();
+            let translate_text = obj.translate_text;
+            for (var i = 0; i < input.length; i++) {
+                if (input[i].getAttribute('placeholder') == original_text) {
+                    input[i].setAttribute('placeholder', translate_text);
+                }
+                if (input[i].value == original_text) {
+                    input[i].value = translate_text;
+                }
+            }
+        }
+
+        function replaceTextareaNode(textarea, obj) {
+            let original_text = obj.original_text.trim();
+            let translate_text = obj.translate_text;
+            for (var i = 0; i < textarea.length; i++) {
+                if (textarea[i].getAttribute('placeholder') == original_text) {
+                    textarea[i].setAttribute('placeholder', translate_text);
+                }
+            }
+        }
+    }
+
+    documentReady(dynamicText);
+
+    function documentReady(fu) {
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            setTimeout(documentReady(dynamicText), 1500);
+        } else {
+            document.addEventListener('DOMContentLoaded', fu);
+        }
+    }
+</script>

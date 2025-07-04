@@ -1,0 +1,70 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "16609906021daad1d8": {
+      "type": "rich-text",
+      "blocks": {
+        "16609906023914acbd-0": {
+          "type": "heading",
+          "settings": {
+            "title": "ご注文の流れ"
+          }
+        },
+        "16609906023914acbd-1": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": true,
+            "text": "<p>天狗堂は銀行振込決済のみになります。</p><p>初めてご利用になられる方は必ずご確認いただきますようお願いいたします。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "16609906023914acbd-0",
+        "16609906023914acbd-1"
+      ],
+      "settings": {
+        "align_text": "left",
+        "narrow_column": true,
+        "divider": false
+      }
+    },
+    "1660990685854263be": {
+      "type": "advanced-content",
+      "blocks": {
+        "16609906854f634282-1": {
+          "type": "liquid",
+          "settings": {
+            "code": "<div class=\"order-flow\">\n            <h1 style=\"font-size: calc(var(--typeHeaderSize)* .85);\">ご注文から到着までの流れ</h1>\n            <ol class=\"order-step\">\n                <li class=\"order-list\">ご注文の自動返信メール</li>\n                <li class=\"order-list\">注文確認後に正式受注メールに記載されている振込先にお振込み</li>\n                <li class=\"order-list\">振込入金の完了メール</li>\n                <li class=\"order-list\">発送（荷物番号メール）</li>\n                <li class=\"order-list\">到着</li>\n            </ol>\n        </div>",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "16609906854f634282-1"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "16609906021daad1d8",
+    "1660990685854263be"
+  ]
+}

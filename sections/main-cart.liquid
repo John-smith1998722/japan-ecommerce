@@ -1,0 +1,213 @@
+<div class="page-width page-content">
+
+  {%- render 'breadcrumbs' -%}
+
+  <header class="section-header text-center{% if cart.item_count == 0 %} section-header--404{% endif %}">
+    <h1 class="section-header__title">{{ 'cart.general.title' | t }}</h1>
+    <div class="rte text-spacing">
+      {%- if cart.item_count == 0 -%}
+        <p>{{ 'cart.general.empty' | t }}</p>
+      {%- endif -%}
+      <p>{{ 'cart.general.continue_browsing_html' | t: url: routes.all_products_collection_url }}</p>
+    </div>
+  </header>
+
+  {%- if cart.item_count > 0 -%}
+    <form action="{{ routes.cart_url }}" method="post" novalidate data-location="page" id="CartPageForm">
+      <div class="cart__page">
+        <div data-products class="cart__page-col">
+          {% for item in cart.items %}
+            {%- render 'cart-item', product: item, sizes: '150px', -%}
+          {%- endfor -%}
+        </div>
+        <div class="cart__page-col">
+          {% if settings.cart_notes_enable %}
+            <div>
+              <label for="CartNote">{{ 'cart.general.note' | t }}</label>
+              <textarea name="note" class="input-full cart-notes" id="CartNote">{{ cart.note }}</textarea>
+            </div>
+          {% endif %}
+
+          <div data-discounts>
+            {% if cart.cart_level_discount_applications != blank %}
+              <div class="cart__discounts cart__item-sub cart__item-row">
+                <div>{{ 'cart.general.discounts' | t }}</div>
+                <div class="text-right">
+                  {% for cart_discount in cart.cart_level_discount_applications %}
+                    <div class="cart__discount">
+                      {{ cart_discount.title }} (-{{ cart_discount.total_allocated_amount | money }})
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
+          </div>
+
+          <div class="cart__item-sub cart__item-row">
+            <div>{{ 'cart.general.subtotal' | t }}</div>
+            <div data-subtotal>{{ cart.total_price | money }}</div>
+          </div>
+
+          {% if settings.cart_terms_conditions_enable %}
+            <div class="cart__item-row cart__terms">
+              <input type="checkbox" id="CartTerms" class="cart__terms-checkbox">
+              <label for="CartTerms">
+                {% if settings.cart_terms_conditions_page != blank %}
+                  {{ 'cart.general.terms_html' | t: url: settings.cart_terms_conditions_page.url }}
+                {% else %}
+                  {{ 'cart.general.terms' | t }}
+                {% endif %}
+              </label>
+            </div>
+          {% endif %}
+
+          <div class="cart__item-row cart__checkout-wrapper">
+            <button type="submit" name="checkout" data-terms-required="{{ settings.cart_terms_conditions_enable }}" class="btn cart__checkout">
+              {{ 'cart.general.checkout' | t }}
+            </button>
+
+            {% render 'dokopoi-cart' %}
+    
+            {% if additional_checkout_buttons and settings.cart_additional_buttons %}
+              <div class="additional-checkout-buttons">{{ content_for_additional_checkout_buttons }}</div>
+            {% endif %}
+          </div>
+
+          <div class="cart__item-row text-center">
+            <small>
+              {{ 'cart.general.shipping_at_checkout' | t }}<br />
+            </small>
+          </div>
+
+
+          <p class="cart-attribute__field" style="display: flex;align-items: baseline;">
+            <input type="hidden" name="attributes[Post Office Delivery]" value="No">
+            <input type="checkbox" name="attributes[Post Office Delivery]" id="postOfficeCheckbox" value="Yes"{% if cart.attributes["Post Office Delivery"] == "Yes" %} checked{% endif %}>
+            <label for="postOfficeCheckbox">郵便局留め希望の方はチェックを入れてください</label>
+          </p>
+          
+          <div id="postOfficeDetails" style="display: {% if cart.attributes["Post Office Delivery"] == "Yes" %}block{% else %}none{% endif %}">
+            <!-- Additional text fields go here -->
+            <label class="mt-3" for="postOfficeName">郵便局名</label>
+            <input type="text" name="attributes[Post Office Name]" id="postOfficeName" value="{{ cart.attributes["Post Office Name"] | default: '' }}">
+            
+            <label class="mt-3" for="postalCode">郵便番号〒（郵便局）</label>
+            <input type="text" name="attributes[Postal Code]" id="postalCode" value="{{ cart.attributes["Postal Code"] | default: '' }}">
+            
+            <label class="mt-3" for="postOfficeAddress">郵便局住所</label>
+            <input type="text" name="attributes[Post Office Address]" id="postOfficeAddress" value="{{ cart.attributes["Post Office Address"] | default: '' }}">
+            <br>
+            <a type="button" class="mt-3" data-toggle="modal" data-target="#glassAnimals">
+              郵便局留めについて
+            </a>
+          
+          
+          </div>
+          
+          <script>
+            document.addEventListener("DOMContentLoaded", function() {
+              var postOfficeCheckbox = document.getElementById("postOfficeCheckbox");
+              var postOfficeDetails = document.getElementById("postOfficeDetails");
+          
+              // Initial state
+              postOfficeDetails.style.display = postOfficeCheckbox.checked ? "block" : "none";
+          
+              // Event listener for checkbox change
+              postOfficeCheckbox.addEventListener("change", function() {
+                postOfficeDetails.style.display = postOfficeCheckbox.checked ? "block" : "none";
+              });
+            });
+          </script>
+
+        </div>
+      </div>
+    </form>
+  {%- endif -%}
+
+
+  <div class="modal fade" id="glassAnimals" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Glass Animals</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <h1>郵便局留め利用について</h1>
+                    <p>家族や同居人に知られたくない </p>
+                    <p>仕事などで自宅は留守が多いい</p>
+                    <br>
+                    <p>天狗堂では荷物をご希望の郵便局で受け取れる『郵便局留』を承っています。
+                        <br>指定した郵便局窓口でご自身で都合が良い時に荷物を受け取ることができる便利なサービスです。</p>
+                    <p>手数料/お申込料0円最大10日間取り置き可能ご本人以外に通知なし全国の郵便局で対応可能</p>
+                    <h2>郵便局留め利用の注意点</h2>
+                    <br>
+                    <h2>・郵便局留めを選択する場合の確認事項</h2>
+                    <p>注文前に必ず下記の確認をお願いします。</p>
+                    <h2>・郵便局からお客様への荷物の到着通知は一切ありませんのでご自身で確認してください。</h2>
+                    <p>利用方法をよく読み、ご自身で配送状況を荷物の追跡番号検索でインターネットで随時確認しながら自己責任で行なっていただきますようお願いします。</p>
+                    <h2>・保管期間は郵便局到着から10日間の取り置き後、受け取りをされない場合は返送扱いとなります。</h2>
+                    <p>商品が返送となった場合は天狗堂保証対象外となりますので、ご注意ください。</p>
+                    <p>※保管期限の延長をご希望の方は、10日間の期限が過ぎる前に、お客様ご自身で郵便局に直接ご連絡をお願いします。</p>
+                    <h2>・簡易郵便局/分室/出張所への局留め指定は不可となります。</h2>
+                    <h2>・RMS,　国際eパケットライト便の配送ステータスにつきましては、「保管」等詳細ステータス表示がされない場合がございますのでお客様自身で、直接ご指定郵便局へご確認をお願いします。</h2>
+                    <p>※注意：天狗堂にて到着有無の確認・通知は致しかねますのでご了承ください。</p>
+                    <h2>・荷物受取り時に、郵便局窓口にてご本人様確認が必要となります。</h2>
+                    <p>荷物お受取り時の際、ご本人確認のため現住所が記載された身分証明書（運転免許証等）の提示が必要となります。</p>
+                    <p>ご注文時に記載いただいたご住所と現住所が異なる場合は、お客様の説明が必要となる場合があります。</p>
+                    <br>
+                    <p>なお、記載いただいたご住所が相違していることによりお受取できない場合においては、補償対象外となります。あらかじめご了承ください。</p>
+                    <h2>ご利用方法</h2>
+                    <h2>1. 商品注文時に郵便局留めを選択して郵便局住所を入力する</h2>
+                    <p>※郵便局留めを選択しても、購入者の住所氏名の記入は必須です。会員ログイン後に行なうと、登録住所データが保存され次回以降のご利用で記入する必要がなくなり、便利になるため、会員ログイン時に住所登録することをオススメします。</p>
+                    <a target="_blank" href="https://www.tengudou.net/account/login">（会員登録がまだの方はこちらから</a>
+                    <h2>ご注文時の配送方法入力画面より『郵便局留めを利用する』というチェックボタンを選択します。➡①</h2>
+                    <h2>郵便局住所を入力します。➡②</h2>
+                    <p>最新の郵便局住所は下記よりご確認のうえ、入力をお願いします。</p>
+                    <h2>※郵便局住所の入力以外に、ご注文者様ご自身の住所、氏名の入力も必要です。</h2>
+                    <h2>お受け取り希望の郵便局の住所や郵便番号がわからない場合は下記で検索してください。</h2>
+                    <a target="_blank" href="https://www.post.japanpost.jp/office_search/">（郵便局ホームページ郵便局検索）</a>
+                    <h2>郵便局住所、郵便番号を登録したら、通常通り、注文を完了します。</h2>
+                    <h2>2. 配送状況を確認して受け取る
+                    <br>• 注文後、正式受注確認メール →決済 →荷物追跡番号メールを受け取ります。</h2>
+                    <p>その後、荷物番号メールに書いてある荷物追跡検索URLから配達状況をインターネットで確認します。</p>
+                    <h2>ご注意 : 荷物番号メールの受信後、反映されるまでに数日要すため、3～5日程お待ちいただいてから、検索してください。</h2>
+                    <br>
+                    <h2>弊社より荷物番号メール送付後、10日経っても配達状況が反映されない場合には、大変お手数をおかけしますが必ず弊社までご連絡ください。</h2>
+                    <a target="_blank" href="https://www.tengudou.net/pages/contact-us">（お問い合わせはこちら）</a>
+                    <br>
+                    <p>注意：ご希望の郵便局に荷物が到着しても郵便局からの通知はありません。必ずご自身で配達状況を確認してください。</p>
+
+                    <br>
+                    <h2>配達状況を確認し、荷物が届いていれば、郵便局に受け取りに行きます。</h2>
+                    <p>※受け取りには、本人確認書類（身分証明［免許証等］）と印鑑が必要です。</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">カートへ戻る</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-cart.name"
+}
+{% endschema %}
+<style>
+  .modal-backdrop.fade.show {
+    display: none !important;
+}
+  .modal-body {
+    color: #000;
+}
+  @media (min-width: 992px){
+.modal-lg, .modal-xl {
+    max-width: 90%;
+}
+  }
+</style>

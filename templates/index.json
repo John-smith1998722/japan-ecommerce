@@ -1,0 +1,369 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "d5b8d21a-b338-4f16-b1be-089acd6be009": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "",
+            "title_size": 40,
+            "subheading": "",
+            "link": "",
+            "link_text": "AGA治療薬、ED治療薬、スキンケア",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify://shop_images/life-banner.jpg",
+            "image_mobile": "shopify://shop_images/life-banner.jpg",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        },
+        "slideshow-0": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "",
+            "title_size": 80,
+            "subheading": "",
+            "link": "",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "#000000",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify://shop_images/placentrex_cream_tengudou.jp.jpg",
+            "image_mobile": "shopify://shop_images/home-bauty-header1.jpg",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        },
+        "slideshow-1": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "",
+            "title_size": 80,
+            "subheading": "",
+            "link": "",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "#000000",
+            "text_align": "vertical-bottom horizontal-left",
+            "image": "shopify://shop_images/tengdou01.png",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "d5b8d21a-b338-4f16-b1be-089acd6be009",
+        "slideshow-0",
+        "slideshow-1"
+      ],
+      "settings": {
+        "section_height": "natural",
+        "mobile_height": "auto",
+        "parallax": false,
+        "style": "bars",
+        "autoplay": true,
+        "autoplay_speed": 7,
+        "lazyload_images": true
+      }
+    },
+    "1660498956ae4e3fcd": {
+      "type": "rich-text",
+      "blocks": {
+        "16604989561f39428e-0": {
+          "type": "heading",
+          "settings": {
+            "title": "天狗堂"
+          }
+        },
+        "16604989561f39428e-1": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": true,
+            "text": "<p>弊社は個人輸入代行サービス会社であり。当社が行う業務は個人輸入代行のサービスです。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "16604989561f39428e-0",
+        "16604989561f39428e-1"
+      ],
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false
+      }
+    },
+    "1660499036e7f3ffd9": {
+      "type": "rich-text",
+      "blocks": {
+        "1660499036f9373146-0": {
+          "type": "heading",
+          "settings": {
+            "title": "医薬品の検索"
+          }
+        },
+        "1660499036f9373146-1": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": true,
+            "text": "<p>個人輸入代行業者である天狗堂では、薬機法に準拠しております。<br/><br/>個人輸入医薬品をお探しの方はご自身で下記の「ここから検索」もしくはヘッダーのメニューの検索窓から検索してください。</p>"
+          }
+        },
+        "6f228672-4f12-4464-8335-35c0e2b522a2": {
+          "type": "button",
+          "settings": {
+            "link": "https://www.tengudou.jp/search",
+            "link_text": "ここから検索"
+          }
+        }
+      },
+      "block_order": [
+        "1660499036f9373146-0",
+        "1660499036f9373146-1",
+        "6f228672-4f12-4464-8335-35c0e2b522a2"
+      ],
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false
+      }
+    },
+    "1660499228ddfe0299": {
+      "type": "rich-text",
+      "blocks": {
+        "16604992285f6eeacc-1": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p>ご希望の医薬品の商品名を日本語又は英語でもかまいませんので正確に記入してください。または成分名をご記入ください。日本語名でも英語名でもかまいません。いくつかのキーワードで検索されると、よりご希望の医薬品を見つけやすくなります。</p>"
+          }
+        },
+        "3fc82088-4b1c-4412-aead-b4eb3e0900e7": {
+          "type": "heading",
+          "settings": {
+            "title": "医薬品をお客様ご自身で検索していただく理由"
+          }
+        },
+        "c236e9b6-2207-40dc-b536-ae90e5ffb6ac": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p>天狗堂では、個人輸入代行業者として薬機法に準拠し、不特定多数のユーザーに向けて海外医薬品を一覧表示したり、広告や宣伝、アドバイスを提供して医薬品を輸入代行することは禁止されています。医薬品の成分、用法、副作用などについては、医薬品メーカーのウェブサイトや専門機関の情報を検索していただくようお願いします。また、使用前には医師にご相談いただくことをお勧めします。<br/></p><p>上記の理由に基づき、天狗堂は法令に適合したサイト運営を行っています。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "16604992285f6eeacc-1",
+        "3fc82088-4b1c-4412-aead-b4eb3e0900e7",
+        "c236e9b6-2207-40dc-b536-ae90e5ffb6ac"
+      ],
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false
+      }
+    },
+    "1660499371d95d9f12": {
+      "type": "text-columns",
+      "blocks": {
+        "1660499371a8501c2e-0": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": false,
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "天狗堂のミッション",
+            "text": "<p>業界最安値を追求します！正規品（主力商品は製品分析証明書付き）を買付からお届けまで送料無料で代行し、安全なお届けを100％保証します。</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "1660499371a8501c2e-1": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": false,
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "安心の保証",
+            "text": "<p>万一、トラブル等によりお届けできない場合は、再発送またはご返金いたします。天狗堂は、信頼と安全性を最優先に考えた個人輸入代行業者として、お客様のお役に立てるように努力していきます。<br/><br/>薬機法の規定に従い、正規品を適切な手続きでお届けすることをお約束します。国内登録事業者なのでもしもの時も安心してご利用いただけるサービスを提供させていただきますので、ぜひ天狗堂をご利用ください。</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "1660499371a8501c2e-2": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": false,
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "",
+            "text": "<p>商品価格には送料や手数料が含まれています。サーチャージや追加の送料などの追加費用は一切発生しません（ただし、税関などで数量オーバーになった場合やその他の税金支払いが発生した場合は、お客様のご負担となります）。</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "1660499371a8501c2e-0",
+        "1660499371a8501c2e-1",
+        "1660499371a8501c2e-2"
+      ],
+      "settings": {
+        "title": "三つのお約束",
+        "align_text": "center",
+        "divider": false
+      }
+    },
+    "16604999652671dfff": {
+      "type": "rich-text",
+      "blocks": {
+        "0cff5bf8-527f-4296-be8f-2ba02a4ef558": {
+          "type": "heading",
+          "settings": {
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "0cff5bf8-527f-4296-be8f-2ba02a4ef558"
+      ],
+      "disabled": true,
+      "settings": {
+        "align_text": "left",
+        "narrow_column": true,
+        "divider": true
+      }
+    },
+    "166059249001258ef2": {
+      "type": "text-and-image",
+      "settings": {
+        "image": "shopify://shop_images/aga_ed_skincare_tengudou.jp_1759b1c1-fa8e-43c8-9089-9a164440024b.jpg",
+        "image_mask": "none",
+        "image2_mask": "none",
+        "subtitle": "",
+        "title": "お知らせ",
+        "text": "<p><br/>〇天狗堂の取扱品は全商品正規品です.</p><p>主力の人気商品には成分分析証明書が添付されています。その他の取扱品目も安心してご利用ください。</p><p>〇配送状況</p><p>通常の状態です。</p>",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "align_text": "left",
+        "image_width": "50",
+        "layout": "right",
+        "divider": false,
+        "top_padding": true,
+        "bottom_padding": true,
+        "lazyload_images": true
+      }
+    },
+    "1660636324eb69747b": {
+      "type": "background-image-text",
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "text": "",
+        "button_label": "",
+        "button_link": "",
+        "image": "shopify://shop_images/8C610B15-887C-4C9B-98BD-00A7967F7BCE.jpg",
+        "layout": "left",
+        "height": 750,
+        "framed": true,
+        "parallax": false,
+        "parallax_direction": "top",
+        "lazyload_images": true
+      }
+    },
+    "16605923191ddb3b44": {
+      "type": "testimonials",
+      "blocks": {
+        "16605923199bbd7c4a-0": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "testimonial": "<p>60代女性です。某高級化粧品の仕事をしていましたので化粧品に即効性がないのを知っていましたのであまり期待せすに購入しました。ヒトプラセンタは注射や点滴での接種はたまにしていました。疲れや肌に良く効くと思いますがなかなか定期的にとはいきません。皮膚に直接塗布するクリームやジェルを使ってみようとクリニック、通販サイトそれに個人輸入代行サービスをネット検索、天狗堂さんが一番安く、まだオープンしてまもないのでショップでの購入は少し不安もありましたが事務所が日本でしたので注文してみました。7月13日に購入して23日に届きすぐに使い始めました。注文、振り込み確認、追跡番号確認等節目でのメールもありましたので不安も和らぎました。最初は期待もしていなかったせいかあまり変わりもなく年齢も高いので時間がかかると思いましたが使い始めて二週間が過ぎた頃おでこのシワ、みけんのシワ、瞼のシワが薄くなり肌全体がしっとりもちもちになってきました。そしてふと気づいたら睫毛が何故か伸びていました。調べてみたらまつ毛の育毛にも効果があると書いてあったので納得。私の様な60代にもこんなに効果があるのだから若い方ならもっと早く効果ぎあると思います。今まで高い化粧品を沢山使ってきたのでこんなに安価で効果大には驚いています。早速追加注文しました。 参考までに少し伸びが悪いので私は洗顔後化粧水をつけてからクリームをつけ、しばらくしてまた化粧水をつけて乳液をつけてお手入れ終了です。 参考になれば幸いです。</p>",
+            "author": "ヒトプラセンタ効果",
+            "author_info": ""
+          }
+        },
+        "16605923199bbd7c4a-1": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "testimonial": "<p>今回タダリスの他にセルノス・ジェル、バリフも買ってみましたが、天狗堂さんは初めて利用しました。最近開設されたオンラインサイトでしたので不安も有りましたが、拠点が日本にあること。それに何より価格が安かったので購入してみました。 振込してから土日挟んで９日で届きました。商品もいつもの物と変わりは有りませんでした。 注文確認、振込確認、出荷のお知らせ、届いた後の完了メールとちゃんと送付されて来たので安心して届くのを待てました。 ED治療薬としてはレビトラ系(バルディナフィル)が合うのかなと感じてますが、状況により色々試しています。どれも使ってるうちに副作用が減って来た感じがします。 参考になれば幸いです。</p>",
+            "author": "タダリス(シアリスジェネリック)",
+            "author_info": ""
+          }
+        },
+        "16605923199bbd7c4a-2": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "testimonial": "<p>今回バリフの他にセルノス・ジェル、タダリスも買ってみましたが、天狗堂さんは初めて利用しました。最近開設されたオンラインサイトでしたので不安も有りましたが、拠点が日本にあること。それに何より価格が安かったので購入してみました。 振込してから土日挟んで９日で届きました。商品もいつもの物と変わりは有りませんでした。 注文確認、振込確認、出荷のお知らせ、届いた後の完了メールとちゃんと送付されて来たので安心して届くのを待てました。 ED治療薬としてはレビトラ系(バルディナフィル)が合うのかなと感じてますが、状況により色々試しています。どれも使ってるうちに副作用が減って来た感じがします。</p>",
+            "author": "レビトラジェネリック・バリフ",
+            "author_info": ""
+          }
+        },
+        "16605923199bbd7c4a-3": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "testimonial": "<p>セルノス・ジェルを使い出して既に2年を過ぎました。きっかけはAGA治療のためフィナステリドを使用したら深刻なEDになったためです。フィナを止める訳にもいかず、色々試しましたが、セレノス・ジェルにED薬と併用でフィナの副作用を克服しました。 セルノス・ジェルはサラッとしてて直ぐ乾くのがいいですね。 1日1回,朝に,人差し指の先っぽ位の量を使っています。経済的な事もあり4、5日くらいで1袋ペースです。 使い始めて一ヶ月位で、なかなか落ちなかったお腹周りの贅肉がスッキリしてきて、二ヶ月後くらいには筋トレ効果もハッキリと違が分かるようになりました。 国内で販売されているテストステロン補充軟膏と比較して、セルノスジェルの濃度は国内市販薬の約10倍(1パーセント)ですので,効果が違います。これからも気長に適量を使用していくつもりです。 天狗堂さんからは初めての購入で少し不安もありましたが、一番安かったのと、日本に拠点があり、AGA治療薬、ED治療薬も一緒に購入してみましたが、注文、振込、発送の都度メールが入り振込後土、日込も入れて９日位で届きました。商品もいつものと変わりなく、問題ありませんでした。</p>",
+            "author": "セルノス・ジェル",
+            "author_info": ""
+          }
+        },
+        "16605923199bbd7c4a-4": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "testimonial": "<p>今回セルノス・ジェル、バリフ、タダリスも買ってみましたが、天狗堂さんは初めて利用しました。 最近開設されたオンラインサイトでしたので不安も有りましたが、拠点が日本にある、それに何より価格が安かったので購入してみました。 振込してから土日挟んで９日で届きました。商品もいつもの物と変わりは有りませんでした。 注文確認、振込確認、出荷のお知らせ、届いた後の完了メールと送付されて来たので安心して届くのを待てました。 ED治療薬としては私的にははレビトラ系(バルディナフィル)が副作用が少なくて合う感じです。使ってるうちに副作用が減って来た感じがします。</p>",
+            "author": "スーパー・カマグラ",
+            "author_info": ""
+          }
+        }
+      },
+      "block_order": [
+        "16605923199bbd7c4a-0",
+        "16605923199bbd7c4a-1",
+        "16605923199bbd7c4a-2",
+        "16605923199bbd7c4a-3",
+        "16605923199bbd7c4a-4"
+      ],
+      "settings": {
+        "title": "お客様の声",
+        "align_text": "center",
+        "round_images": true,
+        "color_background": "#f9f9f9",
+        "color_text": "#1c1d1d"
+      }
+    }
+  },
+  "order": [
+    "slideshow",
+    "1660498956ae4e3fcd",
+    "1660499036e7f3ffd9",
+    "1660499228ddfe0299",
+    "1660499371d95d9f12",
+    "16604999652671dfff",
+    "166059249001258ef2",
+    "1660636324eb69747b",
+    "16605923191ddb3b44"
+  ]
+}

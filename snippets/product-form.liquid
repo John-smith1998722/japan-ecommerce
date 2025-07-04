@@ -1,0 +1,139 @@
+{%- form 'product', product, id: form_id, class: 'product-single__form' -%}
+
+  {%- liquid
+    assign gift_card_recipient_feature_active = false
+    if block.settings.show_gift_card_recipient and product.gift_card?
+      assign gift_card_recipient_feature_active = true
+    endif
+
+    assign enable_dynamic_buttons = false
+    if show_dynamic_checkout and template != 'product.preorder' and gift_card_recipient_feature_active == false
+      assign enable_dynamic_buttons = true
+    endif
+  -%}
+
+  {%- if gift_card_recipient_feature_active -%}
+    {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
+  {%- endif -%}
+
+  {%- if enable_dynamic_buttons -%}
+    <div class="payment-buttons">
+  {%- endif -%}
+
+    {%- liquid
+      assign default_text = 'products.product.add_to_cart' | t
+      assign button_text = 'products.product.add_to_cart' | t
+      if template contains 'preorder'
+        assign default_text = 'products.product.preorder' | t
+        assign button_text = 'products.product.preorder' | t
+      endif
+      unless current_variant.available
+        assign button_text = 'products.product.sold_out' | t
+      endunless
+    -%}
+
+    <button
+      {% if product.empty? %}type="button"{% else %}type="submit"{% endif %}
+      name="add"
+      data-add-to-cart
+      class="btn btn--full add-to-cart{% if enable_dynamic_buttons and product.selling_plan_groups == empty %} btn--secondary{% endif %}"
+      {% unless current_variant.available %} disabled="disabled"{% endunless %}>
+      <span data-add-to-cart-text data-default-text="{{ default_text }}">
+        {{ button_text }}
+      </span>
+    </button>
+
+    <div class="ctm_quote_btn">
+      <a class="btn" {% if template contains 'product' %}data-fancybox=""{% endif %} href="#quote_btn_{{ product.id }}">値引交渉をする</a>
+    </div>
+   
+    </div>  
+    {%- if enable_dynamic_buttons -%}
+      {{ form | payment_button }}
+    {%- endif -%}
+
+  {%- if enable_dynamic_buttons -%}
+    </div>
+  {%- endif -%}
+
+  <div class="shopify-payment-terms product__policies">{{ form | payment_terms }}</div>
+
+  <select name="id" data-product-select class="product-single__variants no-js">
+    {%- for variant in product.variants -%}
+      {%- if variant.available -%}
+        <option {% if variant == product.selected_or_first_available_variant %}
+          selected="selected"{% endif %}
+          value="{{ variant.id }}">
+          {{ variant.title }} - {{ variant.price | money_with_currency }}
+        </option>
+      {%- else -%}
+        <option disabled="disabled">
+          {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+        </option>
+      {%- endif -%}
+    {%- endfor -%}
+  </select>
+{%- endform -%}
+
+{%- if settings.discount_enable -%}
+ <div id="quote_btn_{{ product.id }}" class="quote_wrapper discount_quote_form " style="display: none; max-width: 680px;width:100%">
+      {%- if settings.discount_head != blank -%}
+      <h2>{{ settings.discount_head }}</h2>
+      {%- endif -%}  
+      {%- if settings.discount_content != blank -%}
+      <div class="form_desc">{{ settings.discount_content }}</div>
+      {%- endif -%}  
+
+      {%- assign form_id = 'contact-' | append: product.id -%}
+      {%- form 'contact', id: form_id -%}
+        <p class="important_note"><sup>※</sup>必須項目です。必ずご記入ください</p>
+        {%- if form.posted_successfully? -%}
+          <p class="note note--success">
+            {{ 'contact.form.post_success' | t }}
+          </p>
+        {%- endif -%}
+
+        {{ form.errors | default_errors }}
+
+        <label for="ContactFormProductname">商品名<sup>※</sup></label>
+        <input readonly type="text" id="ContactFormProductname" class="input-full" name="contact[Product Name]"  value="{{ product.title }}">
+
+        <label for="ContactFormNumset">SET/個数<sup>※</sup></label>
+        <input type="text" id="ContactFormNumset" class="input-full" name="contact[SET/Number]" required>
+
+        <label for="ContactFormSellPrice">他社サイトの販売価格<sup>※</sup></label>
+        <input type="text" id="ContactFormSellPrice" class="input-full" name="contact[Sell Price]" required>
+
+        <label for="ContactFormOtherfee">他社サイトの送料、その他の手数料<sup>※</sup></label>
+        <input type="text" id="ContactFormOtherfee" class="input-full" name="contact[Shipping Other fee]" required>
+
+        <label for="ContactFormRelevant_product_url">他社サイトの該当商品のURL<sup>※</sup></label>
+        <input type="text" id="ContactFormRelevant_product_url" class="input-full" name="contact[Relevant Product URL]" required>
+
+        <label for="ContactFormName">お名前<sup>※</sup></label>
+        <input type="text" id="ContactFormName" class="input-full" name="contact[Name]" autocapitalize="words" required>
+          
+        <label for="ContactForm-email">メールアドレス<sup>※</sup></label>
+        <input
+            autocomplete="email" type="email" id="ContactForm-email" class="input-full" name="contact[email]" spellcheck="false" autocapitalize="off"
+            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+            aria-required="true" required>
+  
+        <label for="ContactFormMessage">備考欄</label>
+        <textarea rows="5" id="ContactFormMessage" class="input-full" name="contact[Remark]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+
+        <button type="submit" class="btn">
+          {{ 'contact.form.send' | t }}
+        </button>
+
+        {% comment %}
+          Remove the following three lines of code to remove the note
+          about being protected by Google's reCAPTCHA service.
+          By removing it, the small reCAPTCHA widget will appear in the
+          bottom right corner of the page.
+        
+        {{ 'shopify.online_store.spam_detection.disclaimer_html' | t }}
+        {% endcomment %}
+      {%- endform -%}
+ </div>
+ {%- endif -%}

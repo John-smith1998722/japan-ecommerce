@@ -1,0 +1,126 @@
+
+/* custom css */
+.template-search .search-content .page-content {
+    padding-top: 0;
+}
+.template-search .search-content .page-content > hr {
+    margin-top: 0;
+}
+
+.predict-search img.search-img {
+    height: 50px;
+    width: 50px;
+}
+#predictive-search .show-more {
+    padding: 10px 20px;
+    display: block;
+    width: 100%;
+    border-top: 1px solid #ddd;
+}
+#predictive-search {
+    position: absolute;
+    background: #fff;
+    z-index: 1;
+    left: 0;
+    width: 100%;
+    top: calc( 100% - 15px );
+    border: 1px solid #ddd;
+}
+#predictive-search ul {
+    margin: 0;
+    list-style: none;
+}
+.predict-search .search-title {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    gap: 10px;
+    padding: 10px 20px;
+    transition: all 0.25s ease;
+    font-size: 14px;
+    align-items: center;
+}
+
+.predict-search .search-title:hover {
+    background: #efefef;
+}
+@media ( max-width: 767px ){
+  input#Search::placeholder {
+    font-size: 13px;
+}
+}
+
+.header-search-bar.header-bar {
+  max-width: 580px;
+  margin: 0 auto;
+  padding: 15px 0;
+  position: relative;
+}
+
+.search-box__button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.search-box__button input {
+  display: none;
+}
+
+.search-box__button .search-box__label::before {
+  background-color: #fff;
+  content: "";
+    display: block;
+    height: 16px;
+    margin-right: 7px;
+    width: 16px;
+    border: 1px solid #69f;
+    border-radius: 50%;
+  flex: 1 0 auto;
+}
+
+label.search-box__label {
+    align-items: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 0px;
+    width: auto;
+    padding: 5px;
+}
+
+.search-box__button input:checked + label::before {
+    border-width: 5px;
+}
+.header-search-bar.header-bar .site-header__search-form input.search-bar {
+    width: 100%;
+}
+.header-search-bar.header-bar .site-header__search-form .site-header__search-btn--submit {
+    width: 100%;
+    max-width: 120px;
+    background: #0f0f0f;
+    color: #fff;
+    text-align: center;
+    padding: 0;
+}
+.header-search-bar.header-bar .site-header__search-form {
+    padding: 5px 0 0;
+}
+  @media ( max-width: 767px ){
+    .header-search-bar.header-bar{
+      max-width: 100%;
+    }
+  }
+  @media ( max-width: 575px ){
+    .header-search-bar.header-bar label.search-box__label{
+      font-size: 10px;
+    }
+  }
+#HeaderSearchForm {
+    flex-wrap: nowrap;
+}
+
+h1.site-header__logo a:before{
+    display: none;
+}

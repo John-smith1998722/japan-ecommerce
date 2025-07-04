@@ -1,0 +1,57 @@
+  {{ 'custom-search.css' | asset_url | stylesheet_tag: preload: true }}
+<script src="{{ 'custom-search.js' | asset_url }}" defer="defer"></script>
+<div class="page-width">
+    <div class="header-search-bar header-bar">
+                        <div class="search-box__button">
+                            <input type="radio" name="stype" id="stype-pharmaceuticals" class="search-box__radio" value="医薬品" checked>
+                            <label for="stype-pharmaceuticals" class="search-box__label">医薬品</label>
+                    
+                            <input type="radio" name="stype" id="stype-supplement" class="search-box__radio" value="美容・サプリ・他">
+                            <label for="stype-supplement" class="search-box__label">美容・サプリ・他</label>
+                    
+                            <input type="radio" name="stype" id="stype-web-search" class="search-box__radio" value="web_search">
+                            <label for="stype-web-search" class="search-box__label">Web検索</label>
+                        </div>
+      
+
+            <predictive-search>
+            <form action="{{ routes.search_url }}" method="get" role="search" id="HeaderSearchForm" class="site-header__search-form">
+              <!-- Hidden inputs for search parameters -->
+              <input type="hidden" name="type" value="{{ settings.search_type }}">
+              <input type="hidden" name="options[prefix]" value="last">
+              <input type="hidden" name="filter.p.tag" class="tag-type" value="医薬品">
+          
+              <!-- Search input field -->
+              <label for="Search" class="sr-only">{{ 'general.search.placeholder' | t }}</label>
+              <input type="search"
+                id="Search"
+                name="q"
+                value="{{ search.terms | escape | replace: '*', '' }}"
+                placeholder="商品名を正確に記入してください" 
+                class="search-bar"
+                aria-label="{{ 'general.search.placeholder' | t }}"
+                aria-owns="predictive-search-results"
+                aria-controls="predictive-search-results"
+                aria-haspopup="listbox"
+                aria-autocomplete="list"
+
+              >
+          
+              <!-- Search button -->
+              <button type="submit" class="text-link site-header__search-btn site-header__search-btn--submit">検 索</button>
+          
+            </form>
+          </predictive-search>
+   <!-- Predictive search results container -->
+              <div id="predictive-search">
+               <div id="predict-search">
+                 <ul class="predict-search"> 
+              
+                     </ul>
+                   </div>
+               </div>
+            
+            </div>
+
+</div>
+
